@@ -3,14 +3,19 @@ import { useState, useEffect } from "react"
 const Product = ({ match }) => {
     const [product, setProduct] = useState(null);
 
-    const getProduct = () => {
-        fetch(`https://fakestoreapi.com/products/${match.params.id}`)
-            .then(res => res.json())
-            .then(json => setProduct(json))
-    }
+
     useEffect(() => {
-        getProduct()
-    })
+        let isSubscribed = true;
+
+        fetch(`https://fakestoreapi.com/products/${match.params.id}`)
+            .then((res) => res.json())
+            .then((json) => isSubscribed ? setProduct(json) : null);
+        //cleanup
+        return () => (isSubscribed = false)
+
+        // eslint-disable-next-line
+    }, []);
+
     return (
         <div>
             {

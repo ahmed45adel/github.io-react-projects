@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 const Shop = () => {
     const [products, setProducts] = useState(null)
 
-    const getProducts = () => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(json => setProducts(json))
-
-    };
     useEffect(() => {
-        getProducts();
-    }, [])
+        let isSubscribed = true;
 
+        fetch("https://fakestoreapi.com/products")
+            .then((res) => res.json())
+            .then((json) => isSubscribed ? setProducts(json) : null);
+        //cleanup
+        return () => (isSubscribed = false)
+
+        // eslint-disable-next-line
+    }, []);
     return (
         <div>
             <h1 className="my-2" >Shop</h1>
