@@ -6,6 +6,8 @@ import Product from './components/Product/Product';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { HomePage } from './components/HomePage/HomePage';
+import Todo from './components/ToDo/ToDo';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route component={Counter} path="/counter" />
           <Route component={Shop} path="/shop" exact />
           <Route component={Product} path="/shop/:id" />
+          <Route component={Todo} path="/todo" />
         </Switch>
       </div>
     </Router>

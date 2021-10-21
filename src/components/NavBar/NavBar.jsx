@@ -13,6 +13,9 @@ const NavBar = () => {
                 <li className="mx-2 ">
                     <Link to="/shop" >Shop</Link>
                 </li>
+                <li className="mx-2 ">
+                    <Link to="/todo" >ToDo</Link>
+                </li>
             </ul>
         </div>
     );
