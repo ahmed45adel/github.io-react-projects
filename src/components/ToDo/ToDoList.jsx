@@ -9,6 +9,7 @@ const TodoList = ({ todos, deleteTodo }) => {
                                 <p>Title : {todo.title}</p>
                                 <p>Content : {todo.content}</p>
                             </div>
+                            <button onClick={() => (deleteTodo(i))} className="w-5 my-3 mx-3 h-50">X</button>
                         </li>
                     </ul>
                 );

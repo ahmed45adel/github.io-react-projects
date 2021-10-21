@@ -1,6 +1,7 @@
 import {
     ADD_TODO,
-    initialToDo
+    initialToDo,
+    REMOVE_TODO
 } from "../constants/constants"
 
 
@@ -13,11 +14,13 @@ export const todoReducer = (state = initialToDo, action) => {
                 ...state,
                 todos: [...state.todos, action.payload]
             };
-        // case DECREASE_COUNT:
-        //     return {
-        //         ...state,
-        //         count: state.count - action.payload
-        //     };
+
+        case REMOVE_TODO:
+
+            return {
+                ...state,
+                todos: state.todos.filter((item, index) => index !== action.payload)
+            }
         default:
             return state
     }

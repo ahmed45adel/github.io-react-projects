@@ -3,6 +3,7 @@ import TodoList from './ToDoList';
 import './ToDo.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToDoAction } from '../../ReduxConfig/actions/addToDo';
+import { removeToDoAction } from '../../ReduxConfig/actions/removeToDo'
 function Todo() {
     const toDoState = useSelector(state => state.todoReducer.todos)
     const dispatch = useDispatch();
@@ -11,6 +12,7 @@ function Todo() {
     };
 
     const deleteTodo = (index) => {
+        dispatch(removeToDoAction(index))
     }
 
     return (
