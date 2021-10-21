@@ -1,23 +1,26 @@
-import { useState } from "react";
 import ShowCounter from "./ShowCounter";
 import CounterButton from './CounterButton';
+import { Decrease, Increase } from '../../ReduxConfig/ReduxCounter'
+import { useSelector, useDispatch } from "react-redux";
 
 const Counter = () => {
-    const [Counter, setCounter] = useState(0)
-    const increase = () => {
-        setCounter(Counter + 1);
 
-    }
-    const decrease = () => {
-        setCounter(Counter - 1);
+    //access store
+    const countState = useSelector(state => state.count)
+    const dispatch = useDispatch();
 
+    const increment = () => {
+        dispatch(Increase(1))
     }
+    const decrement = () => {
+        dispatch(Decrease(1))
+    }
+
     return (
         <div>
-            <ShowCounter Counter={Counter}>
-            </ShowCounter>
-            <CounterButton CounterAction={increase} actionType="Increase" />
-            <CounterButton CounterAction={decrease} actionType="Decrease" />
+            <ShowCounter Counter={countState} />
+            <CounterButton CounterAction={increment} actionType="Increase" />
+            <CounterButton CounterAction={decrement} actionType="Decrease" />
         </div>
     )
 }
