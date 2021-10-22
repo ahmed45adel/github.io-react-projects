@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { HomePage } from './components/HomePage/HomePage';
 import Todo from './components/ToDo/ToDo';
-
+import SignUp from './components/Formik/Register';
+import Login from './components/Formik/Login';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route component={Shop} path="/shop" exact />
           <Route component={Product} path="/shop/:id" />
           <Route component={Todo} path="/todo" />
+          <Route component={Login} path="/login" />
+          <Route component={SignUp} path="/signup" />
         </Switch>
       </div>
     </Router>
