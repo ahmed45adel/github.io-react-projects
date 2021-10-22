@@ -9,7 +9,7 @@ export const initialValues = {
     hobbies: ["Learning"
     ]
 };
-export const onSubmit = (values) => console.log(JSON.stringify(values, null, 4));
+export const onSubmit = (values) => console.log("submitted");
 
 export const validationSchema = yup.object({
     userName: yup.string().required("UserName field is required"),
